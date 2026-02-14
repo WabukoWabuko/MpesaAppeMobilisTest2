@@ -14,7 +14,7 @@ class MpesaViewModel : ViewModel() {
     private val consumerKey = "GclZGJmRU9yrFhYGztkkSklCRebYAjqFWK4HHLRPkaSvyxyH"
     private val consumerSecret = "lDfP0z4FZLEymW0vrm0MbTJoTPF22vLGdGJdZwVHAKpo44wPL42wkan7fuKmIr5v"
     private val passkey = "ULbFpiLX+8fnTHQVxu9zexw8uJGIp+ppFu3u2wBkhHKCt7Up2SeucONtbN74QgwLeYAywpIMbDF2b4UeNshbWZQ0B6sSy9e+5fksJ9fZ+Af71MW4t45QxjAKGnYZO8Nnr/yF4WtsjYyEfzfY3p6Apv6vk071iGJXs2ouzRYCoSauCOAg3uWpgUt1Kj7bWC2jAE9TaDva1dgI1jgISJFzwXzGv2YIaEnw+N6FAAK+j2L4K9GGjvzJfekOCmHXj36OZADSJ+O2wYkOKuO5o+S31aPGz+RZ835HZbJvt6MCfk1CrvPJd7mHc2Bs1xVi4QbY/n1EaO/ZG5bxAggztA+m+Q==" // Default Sandbox Passkey
-    private val businessShortCode = "174379" // Default Sandbox Shortcode
+    private val businessShortCode = "174379"
 
     private val retrofit = Retrofit.Builder()
         .baseUrl("https://sandbox.safaricom.co.ke/")
