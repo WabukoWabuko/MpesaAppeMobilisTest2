@@ -11,9 +11,9 @@ import java.util.*
 
 class MpesaViewModel : ViewModel() {
 
-    private val consumerKey = "GclZGJmRU9yrFhYGztkkSklCRebYAjqFWK4HHLRPkaSvyxyH"
-    private val consumerSecret = "lDfP0z4FZLEymW0vrm0MbTJoTPF22vLGdGJdZwVHAKpo44wPL42wkan7fuKmIr5v"
-    private val passkey = "ULbFpiLX+8fnTHQVxu9zexw8uJGIp+ppFu3u2wBkhHKCt7Up2SeucONtbN74QgwLeYAywpIMbDF2b4UeNshbWZQ0B6sSy9e+5fksJ9fZ+Af71MW4t45QxjAKGnYZO8Nnr/yF4WtsjYyEfzfY3p6Apv6vk071iGJXs2ouzRYCoSauCOAg3uWpgUt1Kj7bWC2jAE9TaDva1dgI1jgISJFzwXzGv2YIaEnw+N6FAAK+j2L4K9GGjvzJfekOCmHXj36OZADSJ+O2wYkOKuO5o+S31aPGz+RZ835HZbJvt6MCfk1CrvPJd7mHc2Bs1xVi4QbY/n1EaO/ZG5bxAggztA+m+Q==" // Default Sandbox Passkey
+    private val consumerKey = "vxMqGTLOAge4TsWhNdAMwAszm5Ze7MIfbgCciLMamCGMKPfS"
+    private val consumerSecret = "0djRTRHEKOXNZxa6TbfBwiHFT9VhIgXtizCRGJYskH1AmmfwAe0dDsebPJx1t3vr"
+    private val passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919"
     private val businessShortCode = "174379"
 
     private val retrofit = Retrofit.Builder()
@@ -26,19 +26,19 @@ class MpesaViewModel : ViewModel() {
     fun performSTKPush(phone: String, amount: String) {
         viewModelScope.launch {
             try {
-                // 1. Generate Auth Token
+                // 1. Hii here ni kuGenerate Auth Token
                 val authString = "$consumerKey:$consumerSecret"
                 val encodedAuth = "Basic " + Base64.encodeToString(authString.toByteArray(), Base64.NO_WRAP)
                 val tokenResponse = api.getAccessToken(encodedAuth)
 
-                // 2. Generate Password & Timestamp
+                // 2. Hapa we Generate Password & Timestamp
                 val timestamp = SimpleDateFormat("yyyyMMddHHmmss", Locale.getDefault()).format(Date())
                 val password = Base64.encodeToString(
                     (businessShortCode + passkey + timestamp).toByteArray(),
                     Base64.NO_WRAP
                 )
 
-                // 3. Build Request
+                // 3. At this point tunaBuild Request
                 val request = STKPushRequest(
                     BusinessShortCode = businessShortCode,
                     Password = password,
@@ -47,7 +47,7 @@ class MpesaViewModel : ViewModel() {
                     PartyA = phone, // e.g. 254740750403
                     PartyB = businessShortCode,
                     PhoneNumber = phone,
-                    CallBackURL = "https://wabuko-portfolio.vercel.app", // This must be a live HTTPS URL to get results
+                    CallBackURL = "https://wabuko-portfolio.vercel.app",
                     AccountReference = "AppPayment",
                     TransactionDesc = "Payment for goods"
                 )
