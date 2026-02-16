@@ -45,7 +45,10 @@ fun MpesaPayScreen(myViewModel: MpesaViewModel = viewModel()) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(text = "M-Pesa STK Push Demo", style = MaterialTheme.typography.headlineMedium)
+        Text(
+            text = "M-Pesa STK Push Demo",
+            style = MaterialTheme.typography.headlineMedium
+        )
 
         Spacer(modifier = Modifier.height(30.dp))
 
